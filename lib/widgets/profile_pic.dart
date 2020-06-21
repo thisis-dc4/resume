@@ -8,9 +8,8 @@ class ProfilePic extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           Expanded(
-            flex: 1,
             child: Column(
               children: [
                 Text(
@@ -25,10 +24,8 @@ class ProfilePic extends StatelessWidget {
             ),
           ),
           Expanded(flex: 2, child: Container()),
-          Expanded(
-            flex: 1,
-            child: const Text('More'),
-          )
+          const Text('More'),
+          const Icon(Icons.keyboard_arrow_down),
         ],
       ),
     );
