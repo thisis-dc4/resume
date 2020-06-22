@@ -1,5 +1,6 @@
 import 'package:extended_tabs/extended_tabs.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:resume/widgets/all_text.dart';
 import 'package:resume/widgets/contact_info.dart';
 import 'package:resume/widgets/rating.dart';
@@ -23,12 +24,14 @@ class _MoreInfoState extends State<MoreInfo> with TickerProviderStateMixin {
     return Column(
       children: [
         TabBar(
-          indicatorColor: Colors.black,
-          labelColor: Colors.black,
+          indicatorColor: Colors.yellow,
+          labelColor: Colors.purple,
           tabs: const [
             Tab(text: 'ABOUT ME'),
             Tab(text: 'SKILLS'),
           ],
+          labelPadding: const EdgeInsets.all(8.0),
+          indicatorSize: TabBarIndicatorSize.label,
           controller: tabController,
         ),
         Expanded(
@@ -39,34 +42,41 @@ class _MoreInfoState extends State<MoreInfo> with TickerProviderStateMixin {
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
                   children: [
-                    Text(aboutMe),
+                    Text(
+                      aboutMe,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                     const SizedBox(height: 15),
                     const ContactInfo(
-                      icon: Icons.location_on,
+                      icon: FontAwesomeIcons.locationArrow,
                       text: "Panchkula, Haryana, 134109",
                     ),
                     const ContactInfo(
-                      icon: Icons.phone,
+                      icon: FontAwesomeIcons.phoneSquareAlt,
                       text: "9988363361",
                     ),
                     const ContactInfo(
-                      icon: Icons.mail,
+                      icon: FontAwesomeIcons.envelopeSquare,
                       text: "chaudharydishant.09@gmail.com",
+                    ),
+                    const ContactInfo(
+                      icon: FontAwesomeIcons.githubSquare,
+                      text: "github.com/thisis-dc4",
                     ),
                   ],
                 ),
               ),
               Column(
                 children: const [
-                  Rating(skill: 'Flutter', step: 5),
-                  Rating(skill: 'Firebase', step: 4),
-                  Rating(skill: 'Database Management', step: 4),
-                  Rating(skill: 'API Handling', step: 4),
-                  Rating(skill: 'Programming(C, JS, Core Java)', step: 4),
-                  Rating(skill: 'HTML', step: 4),
-                  Rating(skill: 'UI/UX Designing', step: 3),
-                  Rating(skill: 'CSS', step: 3),
-                  Rating(skill: 'Bootstrap', step: 3),
+                  Rating(skill: 'Flutter', toValue: 100),
+                  Rating(skill: 'Firebase', toValue: 80),
+                  Rating(skill: 'Database Management', toValue: 80),
+                  Rating(skill: 'API Handling', toValue: 80),
+                  Rating(skill: 'Programming(C, JS, Core Java)', toValue: 80),
+                  Rating(skill: 'HTML', toValue: 80),
+                  Rating(skill: 'UI/UX Designing', toValue: 70),
+                  Rating(skill: 'CSS', toValue: 60),
+                  Rating(skill: 'Bootstrap', toValue: 60),
                 ],
               ),
             ],
